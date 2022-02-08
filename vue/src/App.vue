@@ -8,16 +8,13 @@ export default {
   components: {
     HelloWorld
   },
-  
-  computed: {
-    ...mapState(['user'])
-  }
+  computed: {}
 }
 </script>
 
 <template>
-<pre>{{user}}</pre>
-  <img alt="Vue logo" src="./assets/logo.png" />
+<!-- <pre>{{user}}</pre> -->
+  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <HelloWorld msg="Hello Vue 3 + Vite" />
 </template>
 
