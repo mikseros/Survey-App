@@ -7,7 +7,7 @@ const tmpSurveys = [
         title: "Survey with no sense.",
         slug: "no-sense-survey",
         status: "draft",
-        image: "./img/rocket.jpg",
+        image: "https://i.ibb.co/Pz2nyhc/rocket.jpg",
         description: "Super Survey without any sense. Enjoy!",
         created_at: "2022-02-10 10:06:35",
         updated_at: "2022-02-10 10:06:35",
@@ -46,7 +46,7 @@ const tmpSurveys = [
             {
                 id: 2,
                 type: "checkbox",
-                question: "What is your favorite programming language?",
+                question: "What is your favourite programming language?",
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a dui auctor, rhoncus enim et, finibus leo. Proin posuere non nibh eget congue. Etiam tempor.",
                 data: {
                     options: [
@@ -119,7 +119,7 @@ const store = createStore({
             data: {},
             token: sessionStorage.getItem('TOKEN'),
         },
-        surveys: [tmpSurveys],
+        surveys: [...tmpSurveys],
     },
     getters: {},
     actions: {
