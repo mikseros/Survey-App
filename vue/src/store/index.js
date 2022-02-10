@@ -4,7 +4,7 @@ import axiosClient from "../axios";
 const tmpSurveys = [
     {
         id: 100,
-        title: "Survet with no sense.",
+        title: "Survey with no sense.",
         slug: "no-sense-survey",
         status: "draft",
         image: "./img/rocket.jpg",
