@@ -106,7 +106,7 @@ const tmpSurveys = [
                 id: 5,
                 type: "textarea",
                 question: "What do you think about moon landing?",
-                description: "Write you honest opinion. Nothing here is anonymous.",
+                description: "Write your honest opinion. Nothing here is anonymous.",
                 data: {},
             },
         ],
@@ -120,6 +120,7 @@ const store = createStore({
             token: sessionStorage.getItem('TOKEN'),
         },
         surveys: [...tmpSurveys],
+        questionTypes: ["text", "select", "radio", "checkbox", "textarea"],
     },
     getters: {},
     actions: {
