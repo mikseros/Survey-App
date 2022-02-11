@@ -242,6 +242,15 @@ function deleteQuestion(question) {
         (q) => q.id !== question.id
     );
 }
+
+function questionChange(question) {
+    model.value.questions = model.value.questions.map((q) => {
+        if (q.id === question.id) {
+            return JSON.parse(JSON.stringify(question));
+        }
+        return q;
+    });
+}
 </script>
 
 <style>
