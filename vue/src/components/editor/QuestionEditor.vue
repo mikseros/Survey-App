@@ -179,8 +179,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
 import {v4 as uuidv4} from 'uuid';
+import { ref, computed } from 'vue';
 import store from '../../store';
 
 const props = defineProps({
@@ -200,6 +200,16 @@ function upperCaseFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// Emit the data change
+function dataChange() {
+    // This create the clone of the model value (for not loosing options after type change)
+    const data = JSON.parse(JSON.stringify(model.value));
+    if (!shouldHaveOptions()) {
+        delete data.data.options;
+    }
+    emit("change", data);
+}
+
 // Check if the question should have options
 function shouldHaveOptions() {
     return ["select", "radio", "checkbox"].includes(model.value.type);
@@ -209,7 +219,7 @@ function getOptions() {
     return model.value.data.options;
 }
 
-function setOptions() {
+function setOptions(options) {
     model.value.data.options = options;
 }
 
@@ -233,16 +243,6 @@ function typeChange() {
         setOptions(getOptions() || []);
     }
     dataChange();
-}
-
-// Emit the data change
-function dataChange() {
-    const data = JSON.parse(JSON.stringify(model.value));
-    if (!shouldHaveOptions()) {
-        delete data.data.options;
-    }
-
-    emit("change", data);
 }
 
 </script>
