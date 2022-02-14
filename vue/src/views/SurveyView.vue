@@ -113,7 +113,7 @@
                             Expire Date
                         </label>
                         <input
-                            type="text"
+                            type="date"
                             name="expire_date"
                             id="expire-date"
                             v-model="model.expire_date"
@@ -202,10 +202,12 @@
 import { v4 as uuidv4 } from 'uuid';
 import store from '../store';
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import PageComponent from '../components/PageComponent.vue';
 import QuestionEditor from '../components/editor/QuestionEditor.vue';
+
+const router = useRouter();
 
 const route = useRoute();
 
@@ -249,6 +251,16 @@ function questionChange(question) {
             return JSON.parse(JSON.stringify(question));
         }
         return q;
+    });
+}
+
+// Create or update survey
+function saveSurvey() {
+    store.dispatch("saveSurvey", model.value).then(({ data }) => {
+        router.push({
+            name: "SurveyView",
+            params: { id: data.data.id },
+        });
     });
 }
 </script>
