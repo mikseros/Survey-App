@@ -7,7 +7,12 @@
                 </h1>
             </div>
         </template>
-        <div v-if="surveyLoading" class="flex justify-center">Loading...</div>
+        <div v-if="surveyLoading" class="flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- <div v-if="surveyLoading" class="flex justify-center">Loading...</div> -->
         <form v-else @submit.prevent="saveSurvey">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <!-- Survey Fields -->
