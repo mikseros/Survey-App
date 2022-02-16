@@ -76,7 +76,7 @@ class SurveyController extends Controller
             $relativePath = $this->saveImage($data['image']);
             $data['image'] = $relativePath;
 
-            // If there is an old image, dleete it
+            // If there is an old image, delete it
             if ($survey->image) {
                 $absolutePath = public_path($survey->image);
                 File::delete($absolutePath);
@@ -105,6 +105,12 @@ class SurveyController extends Controller
 
         $survey->delete();
         return response('', 204);
+
+        // If there is an old image, delete it
+        if ($survey->image) {
+            $absolutePath = public_path($survey->image);
+            File::delete($absolutePath);
+        }
     }
 
     private function saveImage($image) {

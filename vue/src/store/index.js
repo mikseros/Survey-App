@@ -1,3 +1,4 @@
+import axios from "axios";
 import {createStore} from "vuex";
 import axiosClient from "../axios";
 
@@ -159,6 +160,9 @@ const store = createStore({
                 });
             }
             return response;
+        },
+        deleteSurvey({}, id) {
+            return axiosClient.delete(`/survey/${id}`);
         },
         register({commit}, user) {
         //     return fetch('http://localhost:8000/api/register', {
