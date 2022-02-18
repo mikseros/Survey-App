@@ -4,11 +4,20 @@ import DefaultLayout from '../components/DefaultLayout.vue';
 import AuthLayout from '../components/AuthLayout.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
+import SurveyPublicView from '../views/SurveyPublicView.vue';
 import Surveys from '../views/Surveys.vue';
 import store from '../store';
 import SurveyView from '../views/SurveyView.vue';
 
 const routes = [
+    {
+
+    },
+    {
+        path: '/view/survey/:slug',
+        name: 'SurveyPublicView',
+        component: SurveyPublicView
+    },
     {
         path: '/',
         redirect: '/dashboard',
