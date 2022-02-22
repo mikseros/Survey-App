@@ -40,12 +40,24 @@
                 />
                 <h3 class="font-bold text-xl mb-3">{{data.latestSurvey.title}}</h3>
                 <div class="flex justify-between text-sm mb-1">
-                    <div>Upload Date:</div>
+                    <div>Create Date:</div>
                     <div>{{data.latestSurvey.created_at}}</div>
+                </div>
+                <div class="flex justify-between text-sm mb-1">
+                    <div>Expire Date:</div>
+                    <div>{{data.latestSurvey.expire_date}}</div>
+                </div>
+                <div class="flex justify-between text-sm mb-1">
+                    <div>Status:</div>
+                    <div>{{data.latestSurvey.status ? 'Active' : 'Draft'}}</div>
+                </div>
+                <div class="flex justify-between text-sm mb-1">
+                    <div>Questions:</div>
+                    <div>{{ data.latestSurvey.questions }}</div>
                 </div>
                 <div class="flex justify-between text-sm mb-3">
                     <div>Answers:</div>
-                    <div>{{ data.totalAnswers }}</div>
+                    <div>{{ data.latestSurvey.answers }}</div>
                 </div>
                 <div class="flex justify-between">
                     <router-link
